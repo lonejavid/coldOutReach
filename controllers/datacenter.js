@@ -42,6 +42,7 @@ async function AiQueryGenerator(query) {
 
 const datacenter = async (req, res) => {
   const { query } = req.body;
+  console.log("query i an metting here is as here ",query)
 
   if (!query) {
     return res.status(400).json({ message: 'Query is required' });
