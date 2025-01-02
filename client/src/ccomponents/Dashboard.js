@@ -31,7 +31,7 @@ const TaskDashboard = () => {
 
   const handleEmailPreview = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/emailPreview", {
+      const response = await axios.get("https://emailmarketing-1dfc22840d6a.herokuapp.com/emailPreview", {
         headers: {
           "Content-Type": "application/json",
         },
@@ -53,7 +53,7 @@ const TaskDashboard = () => {
   // Fetch progress from backend and update progress state
   const handleProgress = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/getProgress", {
+      const response = await axios.get("https://emailmarketing-1dfc22840d6a.herokuapp.com/getProgress", {
         headers: {
           "Content-Type": "application/json",
         },

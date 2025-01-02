@@ -24,7 +24,7 @@ export const AuthProvider = ({ children }) => {
     // Login function to send credentials and get a token
     const login = async (email, password) => {
         try {
-            const response = await fetch('http://localhost:3000/login', {
+            const response = await fetch('https://emailmarketing-1dfc22840d6a.herokuapp.com/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

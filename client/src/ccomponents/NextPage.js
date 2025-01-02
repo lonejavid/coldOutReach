@@ -29,7 +29,7 @@ const Sidebar = () => {
 
 
   const getPhotoUrl = (photoName) => {
-    return `http://localhost:3000/get-photo?photoName=${encodeURIComponent(photoName)}`;
+    return `https://emailmarketing-1dfc22840d6a.herokuapp.com/get-photo?photoName=${encodeURIComponent(photoName)}`;
   };
 
   const photoUrl = user.photo ? getPhotoUrl(user.photo) : 'https://via.placeholder.com/80'; // Placeholder if no photo

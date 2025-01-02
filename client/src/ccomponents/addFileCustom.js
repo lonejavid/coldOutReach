@@ -53,7 +53,7 @@ const AddFileCustom = () => {
       
 
       // Make the API request with file attachment
-      await axios.post("http://localhost:3000/sendMailCustom", formData, {
+      await axios.post("https://emailmarketing-1dfc22840d6a.herokuapp.com/sendMailCustom", formData, {
         headers: { 
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}` 

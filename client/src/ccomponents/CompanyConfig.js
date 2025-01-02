@@ -26,7 +26,7 @@ const CompanyConfig = () => {
 
     try {
       setIsLoading(true);
-      const response = await axios.post('http://localhost:3000/companydetails', data, {
+      const response = await axios.post('https://emailmarketing-1dfc22840d6a.herokuapp.com/companydetails', data, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -51,7 +51,7 @@ const CompanyConfig = () => {
 
     try {
       // Send the token and company name to the backend
-      const response = await axios.get('http://localhost:3000/getCompanyDetiles', {
+      const response = await axios.get('https://emailmarketing-1dfc22840d6a.herokuapp.com/getCompanyDetiles', {
         headers: { Authorization: `Bearer ${token}` },
         params: { name: companyName }, // Send companyName as query param to fetch specific details
       });
@@ -73,7 +73,7 @@ const CompanyConfig = () => {
 
     try {
       // Send the company name to the backend to delete the company
-      const response = await axios.delete('http://localhost:3000/removeCompany', {
+      const response = await axios.delete('https://emailmarketing-1dfc22840d6a.herokuapp.com/removeCompany', {
         headers: { Authorization: `Bearer ${token}` },
         data: { companyName }, // Send company name to backend for removal
       });

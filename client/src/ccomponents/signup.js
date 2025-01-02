@@ -48,7 +48,7 @@ const SignupPage = () => {
         formDataToSend.append('photo', formData.photo); // Append the photo file
       }
 
-      const response = await fetch('http://localhost:3000/signup', {
+      const response = await fetch('https://emailmarketing-1dfc22840d6a.herokuapp.com/signup', {
         method: 'POST',
         body: formDataToSend,
       });

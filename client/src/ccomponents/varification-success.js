@@ -40,7 +40,7 @@ const VerificationSuccess = () => {
         hasSentToken.current = true; // Mark as sent
         try {
           const response = await axios.post(
-            "http://localhost:3000/saveToken",
+            "https://emailmarketing-1dfc22840d6a.herokuapp.com/saveToken",
             { token, email },
             {
               headers: {
