@@ -55,6 +55,7 @@ const DataCenterSearch = () => {
     }
 
     try {
+      console.log("query to be sent to the server",query)
       const response = await axios.post('https://emailmarketing-1dfc22840d6a.herokuapp.com/api/datacenter', {
         query,
       }, {
