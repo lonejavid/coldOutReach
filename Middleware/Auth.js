@@ -12,7 +12,7 @@ const authenticate = async (req, res, next) => {
         }
 
         // Verify the token and extract the user payload
-        const decoded = jwt.verify(token, 'password');
+        const decoded = jwt.verify(token, 'mypassword');
         const email = decoded.email;
 
         // Find the user in the database by email
