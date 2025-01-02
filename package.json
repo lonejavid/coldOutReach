@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
   "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client && npm install puppeteer-core chromium",
-  "start": "nodemon server.js"
+  "start": "node server.js"
 }
 
 ,
@@ -21,10 +21,10 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.8.0",
     
-    "nodemon": "^3.1.7",
+   
     "puppeteer": "^23.11.1",
     "puppeteer-extra": "^3.3.6",
-    "puppeteer-extra-plugin-stealth": "^2.11.2",
+    "puppeteer-extra-plugin-stealth": "^2.11.2"
     
   },
   "engines": {
