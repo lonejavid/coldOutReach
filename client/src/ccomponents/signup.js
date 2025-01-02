@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const SignupPage = () => {
   const [formData, setFormData] = useState({
@@ -8,28 +9,24 @@ const SignupPage = () => {
     organization: '',
     email: '',
     password: '',
-    photo: null, // For storing the photo file
+   
   });
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [successMessage, setSuccessMessage] = useState('');
   const navigate = useNavigate();
-
   const handleChange = (e) => {
-    const { name, value, files } = e.target;
-    if (name === 'photo') {
-      setFormData({
-        ...formData,
-        photo: files[0], // Store the uploaded file
-      });
-    } else {
-      setFormData({
-        ...formData,
-        [name]: value,
-      });
-    }
+    const { name, value } = e.target; // No need to handle 'files' anymore
+  
+    setFormData({
+      ...formData,
+      [name]: value, // Update the form data with the input field value
+    });
   };
+  
+
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -39,41 +36,46 @@ const SignupPage = () => {
 
     try {
       // Prepare form data
-      const formDataToSend = new FormData();
-      formDataToSend.append('name', formData.name);
-      formDataToSend.append('organization', formData.organization);
-      formDataToSend.append('email', formData.email);
-      formDataToSend.append('password', formData.password);
-      if (formData.photo) {
-        formDataToSend.append('photo', formData.photo); // Append the photo file
-      }
-
-      const response = await fetch('https://emailmarketing-1dfc22840d6a.herokuapp.com/signup', {
-        method: 'POST',
-        body: formDataToSend,
+      const dataToSend = {
+        name: formData.name,
+        organization: formData.organization,
+        email: formData.email,
+        password: formData.password,
+      };
+    
+      console.log("Data being sent:", JSON.stringify(dataToSend));
+    
+      // Send POST request
+      const response = await axios.post('https://emailmarketing-1dfc22840d6a.herokuapp.com/signup', dataToSend, {
+        headers: {
+          'Content-Type': 'application/json', // Set Content-Type header for JSON data
+        },
       });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        setError(errorData.message || 'Something went wrong!');
+    
+      console.log("Response data:", response);
+    
+      // Check for successful status code
+      if (response.status === 201) {
+        setSuccessMessage(response.data.message || 'Signup successful!');
         setLoading(false);
-        return;
+        setFormData({ name: '', organization: '', email: '', password: '' }); // Reset form
+    
+        // After 2 seconds, remove the success message and navigate to home
+        setTimeout(() => {
+          setSuccessMessage('');
+          navigate('/'); // Navigate to home or another page
+        }, 3000);
+      } else {
+        // Handle unexpected statuses
+        setError('Unexpected response status. Please try again.');
+        setLoading(false);
       }
-
-      const data = await response.json();
-      setSuccessMessage(data.message || 'Signup successful!');
-      setLoading(false);
-      setFormData({ name: '', organization: '', email: '', password: '', photo: null }); // Reset form
-
-      // After 2 seconds, remove the success message and navigate to home
-      setTimeout(() => {
-        setSuccessMessage('');
-        navigate('/'); // Navigate to home or another page
-      }, 3000);
     } catch (error) {
+      console.error("Error during signup:", error);
       setError('Network error. Please try again.');
       setLoading(false);
     }
+    
   };
 
   return (
@@ -142,17 +144,6 @@ const SignupPage = () => {
             />
           </div>
 
-          <div className="mb-3">
-            <label htmlFor="photo" className="form-label">Upload Profile Photo</label>
-            <input
-              type="file"
-              className="form-control"
-              id="photo"
-              name="photo"
-              onChange={handleChange}
-              accept="image/*" // Accept only image files
-            />
-          </div>
 
           <div className="text-center">
             <button type="submit" className="btn btn-primary w-100" disabled={loading}>
