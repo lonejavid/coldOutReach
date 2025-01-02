@@ -7,9 +7,9 @@ const fs = require('fs');
 const { google } = require("googleapis");
 const User = require("../Modals/user");
 const user = require('../Modals/user');
-const CLIENT_ID = "805313651348-2m1g9hnassmte6nph3lvnkiebe2d498c.apps.googleusercontent.com";
-const CLIENT_SECRET = "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";
-const REDIRECT_URI = "http://localhost:3000/oauth2callback";
+const CLIENT_ID = "930555176944-2j56obf153h6okjjj7arsr6kquvg8dk6.apps.googleusercontent.com";
+const CLIENT_SECRET = "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";
+const REDIRECT_URI = "https://emailmarketing-1dfc22840d6a.herokuapp.com/oauth2callback";
 const oAuth2Client = new google.auth.OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI);
 exports.registerMail = async (req, res) => {
   try {
