@@ -1,5 +1,6 @@
 const puppeteer = require('puppeteer-extra');
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');
+const executablePath = require('puppeteer-core').executablePath();
 const Groq = require('groq-sdk');
 const groq = new Groq({ apiKey: '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' });
 puppeteer.use(StealthPlugin());
@@ -50,8 +51,8 @@ const datacenter = async (req, res) => {
 
   try {
     const browser = await puppeteer.launch({
-      executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || '/app/.apt/usr/bin/google-chrome-stable',
-      headless: true,
+      executablePath: executablePath,
+            headless: true,
       args: [
         '--no-sandbox',
         '--disable-setuid-sandbox',
