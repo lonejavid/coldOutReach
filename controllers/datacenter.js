@@ -50,6 +50,7 @@ const datacenter = async (req, res) => {
 
   try {
     const browser = await puppeteer.launch({
+      executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || '/app/.apt/usr/bin/google-chrome-stable',
       headless: true,
       args: [
         '--no-sandbox',
