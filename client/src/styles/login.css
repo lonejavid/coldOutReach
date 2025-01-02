@@ -1,0 +1,44 @@
+/* Optional: Additional styling for the modal */
+.modal-content {
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.modal-header {
+    border-bottom: none;
+}
+
+.modal-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #343a40;
+}
+
+.modal-body {
+    padding: 2rem;
+}
+
+.modal-footer {
+    border-top: none;
+}
+
+/* Ensure form controls and button have consistent styling */
+.form-control {
+    padding: 0.75rem;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    padding: 0.75rem;
+    border-radius: 5px;
+    font-size: 1.125rem;
+    background-color: #007bff;
+    border: none;
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}

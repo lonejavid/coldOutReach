@@ -1,0 +1,173 @@
+/* Import Roboto font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Roboto, sans-serif;
+}
+
+/* Landing section style */
+.landing {
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    position: relative; /* Positioning context for children */
+    overflow: hidden; /* Hide any overflow from children */
+}
+
+/* Video style */
+video {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover; /* Cover the container */
+    position: absolute; /* Position absolutely */
+    top: 0;
+    left: 0;
+    z-index: -1; /* Place video behind other elements */
+}
+
+/* Overlay style for darkening video background */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Dark semi-transparent overlay */
+    z-index: 0; /* Overlay above the video, but below the content */
+}
+
+/* Center content in the middle of the screen */
+.content {
+    position: absolute; /* Position absolutely */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center content horizontally and vertically */
+    width: 80%; /* Responsive width */
+    max-width: 1200px; /* Maximum width for readability */
+    text-align: center; /* Center text horizontally */
+    font-size: 25px; /* Font size for readability */
+    color: white; /* White text color */
+    font-weight: 500; /* Semi-bold text */
+    padding: 0 20px; /* Padding for inner spacing */
+    z-index: 1; /* Ensure content is above the overlay and video */
+}
+
+/* Button style */
+button {
+    padding: 10px 20px;
+    font-size: 20px; /* Font size for better visibility */
+    border-radius: 5px; /* Rounded corners */
+    border: none; /* No border */
+    background-color: #1abc9c; /* Button background color */
+    color: white; /* Text color */
+    margin-top: 25px; /* Space above the button */
+    font-weight: 500; /* Semi-bold text */
+    transition: background-color 0.4s; /* Smooth background color transition */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+button:hover {
+    background-color: #16a085; /* Darker background color on hover */
+}
+
+/* Header styles */
+.header {
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(153, 119, 8, 0);
+    color: white;
+    z-index: 100; /* Ensure header is above all other content */
+}
+
+.left-section {
+    flex: 1;
+    width: 300px;
+    display: flex;
+    justify-content: left;
+    margin-left: 40px;
+    align-items: center;
+    font-weight: bold;
+    flex-direction: row;
+    flex-shrink: 0;
+    flex-wrap: nowrap;
+}
+
+.left-section img {
+    height: 50px;
+    margin: 10px;
+}
+
+.left-section div {
+    margin: 10px;
+    cursor: pointer;
+}
+
+.middle-section {
+    flex: 1;
+    max-width: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.right-section {
+    width: 250px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-shrink: 0;
+    margin-right: 40px;
+    align-items: center;
+}
+
+.right-section div {
+    cursor: pointer;
+    font-weight: 800;
+}
+
+.search-icon {
+    height: 24px;
+}
+
+
+/* src/styles/LandinPage.css */
+.loginModal{
+    background-color: #000;
+}
+
+/* Apply black background to the modal content */
+.modal-content {
+    background-color: #000; /* Black background color */
+    color: #fff; /* White text color for better readability */
+}
+
+/* Optional: Add a border to the bottom of the header and top of the footer */
+.modal-header, .modal-footer {
+    border-color: #444; /* Darker border color */
+}
+
+/* Optional: Customize the modal header and footer padding */
+.modal-header {
+    padding: 1rem; /* Adjust padding as needed */
+}
+
+.modal-footer {
+    padding: 1rem; /* Adjust padding as needed */
+}
+
+/* Ensure form controls have appropriate text color */
+.modal-body .form-control {
+    background-color: #222; /* Slightly lighter black for form controls */
+    color: #fff; /* White text color */
+    border-color: #555; /* Darker border for input fields */
+}
+
+.modal-body .form-control::placeholder {
+    color: #888; /* Placeholder text color */
+}
