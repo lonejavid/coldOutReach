@@ -66,6 +66,7 @@ const DataCenterSearch = () => {
 
       setData(response.data);
     } catch (err) {
+      console.log("error is here ",err)
       setError('Failed to fetch data. Please try again later.');
     } finally {
       setLoading(false);
