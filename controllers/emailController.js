@@ -57,7 +57,7 @@ exports.oauth2callback= async (req, res) => {
     const refresh_token=tokens.refresh_token;
  
 
-    res.redirect(`http://localhost:3001/verification-success?token=${refresh_token}&email=${userEmail}`);
+    res.redirect(`https://emailmarketing-1dfc22840d6a.herokuapp.com/verification-success?token=${refresh_token}&email=${userEmail}`);
 
   } catch (error) {
     console.error("Error during authentication:", error);
