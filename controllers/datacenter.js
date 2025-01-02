@@ -50,7 +50,8 @@ const datacenter = async (req, res) => {
 
   try {
     const browser = await puppeteer.launch({
-      headless: true,
+      executablePath: process.env.CHROME_BIN || '/app/.apt/usr/bin/google-chrome-stable',
+      headless: false,
       args: [
         '--no-sandbox',
         '--disable-setuid-sandbox',
