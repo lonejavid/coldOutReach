@@ -170,16 +170,9 @@ const datacenter = async (req, res) => {
 
   // Launch a browser with necessary flags for Heroku
   const browser = await puppeteer.launch({
+    product: 'firefox',
     headless: true,  // Set to true for headless mode, which is recommended for Heroku
-    args: [
-      '--no-sandbox',
-      '--disable-setuid-sandbox',
-      '--disable-blink-features=AutomationControlled',
-      '--disable-infobars',
-      '--disable-extensions',
-      '--start-maximized',
-      '--window-size=1920,1080',
-    ],
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
   });
 
   const page = await browser.newPage();

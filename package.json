@@ -6,7 +6,8 @@
  "scripts": {
   "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
   "start": "nodemon server.js",
-  "postinstall": "npx puppeteer install"
+  "postinstall": "npx puppeteer browsers install firefox"
+
 },
   "dependencies": {
     "bcryptjs": "^2.4.3",
