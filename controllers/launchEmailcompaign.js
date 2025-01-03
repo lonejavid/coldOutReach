@@ -9,7 +9,7 @@ const UserData = require('../Modals/UserData')
 
 const CompanyDetails = require('../Modals/CompanyDetails');
 const Email = require('../Modals/Email');
-const nodemailer = require("nodemailer");
+
 const Token = require('../Modals/tokens');
 const Groq = require('groq-sdk');
 const { google } = require("googleapis");

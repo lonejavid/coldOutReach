@@ -75,3 +75,7 @@ export const AuthProvider = ({ children }) => {
 };
 // Custom hook to access authentication state
 export const useAuth = () => useContext(AuthContext);
+
+
+
+
