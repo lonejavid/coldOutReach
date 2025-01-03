@@ -164,42 +164,44 @@ const puppeteer = require('puppeteer-extra');
 
 
 
-
 const datacenter = async (req, res) => {
-  try {
-    const { query } = req.body;
-    console.log("Query in meeting here is:", query);
+  const { query } = req.body;
+  console.log("Query in meeting here is:", query);
 
-    // Launch the browser with Firefox
-    const browser = await puppeteer.launch({
-      product: 'firefox', // Specify Firefox as the browser
-      headless: true,     // Set to true for headless mode
-      args: ['--no-sandbox'], // Necessary flag for Heroku
-    });
+  // Launch a browser with necessary flags for Heroku
+  const browser = await puppeteer.launch({
+    headless: true,  // Set to true for headless mode, which is recommended for Heroku
+    args: [
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+      '--disable-blink-features=AutomationControlled',
+      '--disable-infobars',
+      '--disable-extensions',
+      '--start-maximized',
+      '--window-size=1920,1080',
+    ],
+  });
 
-    const page = await browser.newPage();
+  const page = await browser.newPage();
 
-    // Visit the page
-    await page.goto('https://www.w3schools.com/');
+  // Visit the page
+  await page.goto('https://www.w3schools.com/');
 
-    // Extract and log all H1 elements
-    const h1Texts = await page.evaluate(() => {
-      const h1Elements = document.querySelectorAll('h1');
-      return Array.from(h1Elements).map(h1 => h1.textContent);
-    });
+  // Extract and log all H1 elements
+  const h1Texts = await page.evaluate(() => {
+    const h1Elements = document.querySelectorAll('h1');
+    return Array.from(h1Elements).map(h1 => h1.textContent);
+  });
 
-    // Log the H1 content
-    console.log(h1Texts);
+  // Log the H1 content
+  console.log(h1Texts);
 
-    // Close the browser
-    await browser.close();
+  // Close the browser
+  await browser.close();
 
-    // Send the result as a JSON response
-    res.json({ results: h1Texts });
-  } catch (error) {
-    console.error("Error in datacenter function:", error);
-    res.status(500).json({ error: error.message });
-  }
+  // Send the result as a JSON response
+  res.json({ results: h1Texts });
 };
 
 module.exports = datacenter;
+
