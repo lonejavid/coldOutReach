@@ -28,13 +28,13 @@ const SetUpDetails = () => {
     const fetchData = async () => {
       try {
         const [companyRes, emailRes,storedData] = await Promise.all([
-          axios.get('https://emailmarketing-1dfc22840d6a.herokuapp.com/getCompanyDetiles', {
+          axios.get('http://localhost:3000/getCompanyDetiles', {
             headers: { Authorization: `Bearer ${token}` },
           }),
-          axios.get('https://emailmarketing-1dfc22840d6a.herokuapp.com/registeredEmails', {
+          axios.get('http://localhost:3000/registeredEmails', {
             headers: { Authorization: `Bearer ${token}` },
           }),
-          axios.get('https://emailmarketing-1dfc22840d6a.herokuapp.com/storedData', {
+          axios.get('http://localhost:3000/storedData', {
             headers: { Authorization: `Bearer ${token}` },
           }),
         ]);
@@ -105,7 +105,7 @@ const SetUpDetails = () => {
     try {
       setIsLoading(true);
       console.log("form data is ",data)
-      const response = await axios.post('https://emailmarketing-1dfc22840d6a.herokuapp.com/launchEmailcompaign', data, {
+      const response = await axios.post('http://localhost:3000/launchEmailcompaign', data, {
         headers: {
           Authorization: `Bearer ${token}`
           

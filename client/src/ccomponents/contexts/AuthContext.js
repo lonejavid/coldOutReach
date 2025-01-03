@@ -3,6 +3,7 @@ import React, { createContext, useState, useContext, useEffect } from 'react';
 // AuthContext to manage authentication state globally
 const AuthContext = createContext();
 
+
 export const AuthProvider = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [user, setUser] = useState(null);
@@ -24,7 +25,7 @@ export const AuthProvider = ({ children }) => {
     // Login function to send credentials and get a token
     const login = async (email, password) => {
         try {
-            const response = await fetch('https://emailmarketing-1dfc22840d6a.herokuapp.com/login', {
+            const response = await fetch('http://localhost:3000/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

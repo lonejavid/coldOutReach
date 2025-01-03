@@ -52,7 +52,7 @@ const AddFile = () => {
       }
       
 
-      await axios.post("https://emailmarketing-1dfc22840d6a.herokuapp.com/sendMails", formData, {
+      await axios.post("http://localhost:3000/sendMails", formData, {
         headers: { 
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`

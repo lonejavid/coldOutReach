@@ -1,9 +1,9 @@
 require('dotenv').config();
 
 
-const CLIENT_ID = process.env.CLIENT_ID;
-const CLIENT_SECRET = process.env.CLIENT_SECRET;
-const REDIRECT_URI = process.env.REDIRECT_URI;
+const CLIENT_ID = '930555176944-2j56obf153h6okjjj7arsr6kquvg8dk6.apps.googleusercontent.com';
+const CLIENT_SECRET = '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';
+const REDIRECT_URI = 'http://localhost:3000/oauth2callback';
 
 const UserData = require('../Modals/UserData')
 

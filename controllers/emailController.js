@@ -7,10 +7,11 @@ const fs = require('fs');
 const { google } = require("googleapis");
 const User = require("../Modals/user");
 const user = require('../Modals/user');
-const CLIENT_ID = "930555176944-2j56obf153h6okjjj7arsr6kquvg8dk6.apps.googleusercontent.com";
-const CLIENT_SECRET = "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";
-const REDIRECT_URI = "https://emailmarketing-1dfc22840d6a.herokuapp.com/oauth2callback";
-const oAuth2Client = new google.auth.OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI);
+const CLIENT_ID = '930555176944-2j56obf153h6okjjj7arsr6kquvg8dk6.apps.googleusercontent.com';
+const CLIENT_SECRET = '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';
+const REDIRECT_URI = 'http://localhost:3000/oauth2callback';
+console.log("redirect uri is",REDIRECT_URI)
+const oAuth2Client = new google.auth.OAuth2(CLIENT_ID, CLIENT_SECRET, 'http://localhost:3000/oauth2callback');
 exports.registerMail = async (req, res) => {
   try {
     
@@ -57,7 +58,7 @@ exports.oauth2callback= async (req, res) => {
     const refresh_token=tokens.refresh_token;
  
 
-    res.redirect(`https://emailmarketing-1dfc22840d6a.herokuapp.com/verification-success?token=${refresh_token}&email=${userEmail}`);
+    res.redirect(`http://localhost:3001/verification-success?token=${refresh_token}&email=${userEmail}`);
 
   } catch (error) {
     console.error("Error during authentication:", error);

@@ -22,7 +22,7 @@ const SetUpEmailCustom = ({ subject, body }) => {
       const token = localStorage.getItem("token");
     
       const response = await axios.get(
-        "https://emailmarketing-1dfc22840d6a.herokuapp.com/registerMail",
+        "http://localhost:3000/registerMail",
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
@@ -46,7 +46,7 @@ const SetUpEmailCustom = ({ subject, body }) => {
   const fetchRegisteredEmails = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get("https://emailmarketing-1dfc22840d6a.herokuapp.com/registeredEmails", {
+      const response = await axios.get("http://localhost:3000/registeredEmails", {
         headers: { Authorization: `Bearer ${token}` },
       });
       console.log("registred emails are ",response.data.registeredEmails)
@@ -73,7 +73,7 @@ const SetUpEmailCustom = ({ subject, body }) => {
     try {
       console.log("email to be deleted",email);
       const token = localStorage.getItem("token");
-      const response = await axios.delete("https://emailmarketing-1dfc22840d6a.herokuapp.com/removeEmail", {
+      const response = await axios.delete("http://localhost:3000/removeEmail", {
         headers: { Authorization: `Bearer ${token}` },
         data: { email },
       });

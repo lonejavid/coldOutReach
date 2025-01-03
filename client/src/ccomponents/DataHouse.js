@@ -20,7 +20,7 @@ const DataHouse = () => {
 
     try {
       console.log('Fetching the data from the server');
-      const response = await axios.get('https://emailmarketing-1dfc22840d6a.herokuapp.com/api/datahouse', {
+      const response = await axios.get('http://localhost:3000/api/datahouse', {
         headers: {
           Authorization: `Bearer ${token}`,
         },

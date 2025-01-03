@@ -24,7 +24,7 @@ const DataCenterSearch = () => {
 
     try {
       console.log("Data to be sent to the server:", data.results);
-      await axios.post('https://emailmarketing-1dfc22840d6a.herokuapp.com/api/save', {
+      await axios.post('http://localhost:3000/api/save', {
         results: data.results,
       }, {
         headers: {
@@ -56,7 +56,7 @@ const DataCenterSearch = () => {
 
     try {
       console.log("query to be sent to the server",query)
-      const response = await axios.post('https://emailmarketing-1dfc22840d6a.herokuapp.com/api/datacenter', {
+      const response = await axios.post('http://localhost:3000/api/datacenter', {
         query,
       }, {
         headers: {
