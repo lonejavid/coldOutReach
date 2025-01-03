@@ -176,8 +176,8 @@ const  datacenter=async(req,res)=> {
       '--disable-infobars',
       '--disable-extensions',
       '--start-maximized',
-      '--window-size=1920,1080'
-    ]
+      '--window-size=1920,1080',
+    ],
   });
 
   const page = await browser.newPage();
