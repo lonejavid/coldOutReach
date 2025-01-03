@@ -196,6 +196,7 @@ const  datacenter=async(req,res)=> {
 
   // Close the browser
   await browser.close();
+  res.json({ results });
 }
 
 
