@@ -47,7 +47,7 @@ const datacenter = async (req, res) => {
 
   if (!query) {
     return res.status(400).json({ message: 'Query is required' });
-  }
+  } 
 
   try {
     const browser = await puppeteer.launch({
