@@ -163,12 +163,14 @@ const puppeteer = require('puppeteer-extra');
 // module.exports = datacenter;
 
 
-const  datacenter=async(req,res)=> {
+
+const datacenter = async (req, res) => {
+  const { query } = req.body;
+  console.log("Query in meeting here is:", query);
+
   // Launch a browser with necessary flags for Heroku
-    const { query } = req.body;
-  console.log("query i an metting here is as here ",query)
   const browser = await puppeteer.launch({
-    executablePath: '/usr/bin/google-chrome', headless: false, // Puppeteer will run without a UI
+    headless: true,  // Set to true for headless mode, which is recommended for Heroku
     args: [
       '--no-sandbox',
       '--disable-setuid-sandbox',
@@ -196,10 +198,10 @@ const  datacenter=async(req,res)=> {
 
   // Close the browser
   await browser.close();
-  res.json({ results });
-}
 
-
-
+  // Send the result as a JSON response
+  res.json({ results: h1Texts });
+};
 
 module.exports = datacenter;
+
