@@ -168,7 +168,7 @@ const  datacenter=async(req,res)=> {
     const { query } = req.body;
   console.log("query i an metting here is as here ",query)
   const browser = await puppeteer.launch({
-    headless: true, // Puppeteer will run without a UI
+    executablePath: '/usr/bin/google-chrome', headless: false, // Puppeteer will run without a UI
     args: [
       '--no-sandbox',
       '--disable-setuid-sandbox',
