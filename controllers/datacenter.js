@@ -170,15 +170,17 @@ const datacenter = async (req, res) => {
 
   // Launch a browser with necessary flags for Heroku
   const browser = await puppeteer.launch({
-    executablePath: '/usr/bin/chromium-browser',
+
     headless: true,  // Set to true for headless mode, which is recommended for Heroku
-    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    args: ['--no-sandbox'],
   });
 
   const page = await browser.newPage();
 
   // Visit the page
-  await page.goto('https://www.w3schools.com/');
+  await page.goto('https://www.w3schools.com/',{
+    waitUntil: 'networkidle2',
+  });
 
   // Extract and log all H1 elements
   const h1Texts = await page.evaluate(() => {
